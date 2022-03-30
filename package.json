@@ -1,0 +1,39 @@
+{
+    "version": 2,
+    "title": "svelte barebones starter",
+    "description": "Minimal and barebones example of a starter for deployment on Vercel with Next.js",
+    "previewMedia": {
+        "type": "image",
+        "src": "assets/frontend.png",
+        "alt": "svelte frontend with Sanity data displaying"
+    },
+    "technologies": [
+        {
+            "id": "vercel",
+            "name": "Vercel",
+            "url": "https://vercel.com/"
+        }
+    ],
+    "deployment": {
+        "provider": "vercel",
+        "studio": {
+            "basePath": "/studio"
+        },
+        "corsOrigins": [
+            {
+                "origin": "http://localhost:3000",
+                "allowCredentials": true
+            }
+        ]
+    },
+    "scripts": {
+        "dev": "npm run dev:sanity && npm run dev:web",
+        "dev:web": "cd web && svelte-kit dev && cd ..",
+        "dev:sanity": "cd studio && sanity start && cd ..",
+        "codegen:sanity-schema": "npx sanity-codegen"
+    },
+    "devDependencies": {
+        "prettier": "^2.6.1",
+        "sanity-codegen": "^0.9.8"
+    }
+}
